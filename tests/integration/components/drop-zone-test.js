@@ -5,20 +5,7 @@ moduleForComponent('drop-zone', 'Integration | Component | drop zone', {
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
+test('has correct class names', function(assert) {
   this.render(hbs`{{drop-zone}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#drop-zone}}
-      template block text
-    {{/drop-zone}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('div.ember-drop-zone.drop-zone').length, 1, 'it has `.ember-drop-zone` and `.drop-zone` class names');
 });
