@@ -1,0 +1,1 @@
+export { default } from 'ember-drop-zone/components/drop-zone';
