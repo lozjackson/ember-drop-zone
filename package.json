@@ -1,7 +1,7 @@
 {
   "name": "ember-drop-zone",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember drop zone",
   "directories": {
     "doc": "doc",
     "test": "tests"
