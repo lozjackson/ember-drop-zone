@@ -8,6 +8,8 @@ Ember-drop-zone is an Ember-cli addon that provides a drop-zone component.
 
 ## Use
 
+Create a drop-zone using the `{{drop-zone}}` component.
+
 ```
 {{#drop-zone action="doSomething"}}
   ...
