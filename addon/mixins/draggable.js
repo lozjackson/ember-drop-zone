@@ -32,6 +32,11 @@ export default Ember.Mixin.create({
   */
   effectAllowed: 'copyMove',
 
+  /**
+    @method serialize
+    @private
+    @return {Object}
+  */
   serialize() {
     let id, type;
     let model = get(this, 'model');
@@ -42,10 +47,20 @@ export default Ember.Mixin.create({
     return { id, type };
   },
 
+  /**
+    @method setData
+    @param {Object} event
+    @private
+  */
   setData(event, data) {
     event.dataTransfer.setData("text", data);
   },
 
+  /**
+    @method setEffectAllowed
+    @param {Object} event
+    @private
+  */
   setEffectAllowed(event) {
     event.dataTransfer.effectAllowed = get(this, 'effectAllowed');
   },
