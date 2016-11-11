@@ -1,1 +1,14 @@
 <h2>Ember-drop-zone</h2>
+
+{{#drop-zone action="dropItem"}}
+  {{#each list as |item|}}
+    <div>{{item}}</div>
+  {{else}}
+    <p>Drop items here...</p>
+  {{/each}}
+{{/drop-zone}}
+
+{{#draggable-item model=myModel}}
+  <div>id: 1,</div>
+  <div>type: 'my-model'</div>
+{{/draggable-item}}
