@@ -7,15 +7,28 @@
   text-align: center;
   transition: background 0.1s;
 }
-.drop-zone.drop-target {
-  background: rgba(0,0,0,0.1);
-}
 .draggable-item {
   height: 50px;
   width: 200px;
   margin: auto;
   border-radius: 2px;
-  background: rgba(255,0,0,0.1);
+  background: rgba(255,255,0,0.1);
   border: 1px solid black;
   text-align: center;
+}
+.inner-box {
+  height: 50px;
+  width: 200px;
+  margin: auto;
+  border-radius: 2px;
+  background: rgba(0,255,0,0.1);
+  border: 1px solid black;
+  text-align: center;
+}
+.drop-zone.drop-target div, .drop-zone.drop-target p {
+  pointer-events: none;
+}
+.drop-zone.drop-target {
+  background: rgba(0,0,0,0.1);
+  border: 1px dashed black;
 }
