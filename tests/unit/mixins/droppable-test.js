@@ -31,9 +31,14 @@ test('_drop() is a function', function(assert) {
 });
 
 test('_drop() calls setDropTarget(event, false)', function(assert) {
-  assert.expect(2);
-  let element = { foo: 'bar' };
-  let event = { target: element };
+  assert.expect(3);
+  let event = { target: { foo: 'bar' } };
+  let element = {
+    contains: target => {
+      assert.equal(target, event.target);
+      return true;
+    }
+  };
   let DroppableObject = Ember.Object.extend(DroppableMixin);
   let subject = DroppableObject.create({
     element,
@@ -46,10 +51,15 @@ test('_drop() calls setDropTarget(event, false)', function(assert) {
 });
 
 test('_drop() sets dropTarget to false', function(assert) {
-  assert.expect(1);
+  assert.expect(2);
 
-  let element = { foo: 'bar' };
-  let event = { target: element };
+  let event = { target: { foo: 'bar' } };
+  let element = {
+    contains: target => {
+      assert.equal(target, event.target);
+      return true;
+    }
+  };
   let DroppableObject = Ember.Object.extend(DroppableMixin);
   let subject = DroppableObject.create({ dropTarget: true, element });
   subject._drop(event);
@@ -63,9 +73,14 @@ test('_dragEnter() is a function', function(assert) {
 });
 
 test('_dragEnter() calls setDropTarget(event, true)', function(assert) {
-  assert.expect(2);
-  let element = { foo: 'bar' };
-  let event = { target: element };
+  assert.expect(3);
+  let event = { target: { foo: 'bar' } };
+  let element = {
+    contains: target => {
+      assert.equal(target, event.target);
+      return true;
+    }
+  };
   let DroppableObject = Ember.Object.extend(DroppableMixin);
   let subject = DroppableObject.create({
     element,
@@ -78,9 +93,14 @@ test('_dragEnter() calls setDropTarget(event, true)', function(assert) {
 });
 
 test('_dragEnter() sets dropTarget to true', function(assert) {
-  assert.expect(1);
-  let element = { foo: 'bar' };
-  let event = { target: element };
+  assert.expect(2);
+  let event = { target: { foo: 'bar' } };
+  let element = {
+    contains: target => {
+      assert.equal(target, event.target);
+      return true;
+    }
+  };
   let DroppableObject = Ember.Object.extend(DroppableMixin);
   let subject = DroppableObject.create({ dropTarget: false, element });
   subject._dragEnter(event);
@@ -94,9 +114,14 @@ test('_dragLeave() is a function', function(assert) {
 });
 
 test('_dragLeave() calls setDropTarget(event, false)', function(assert) {
-  assert.expect(2);
-  let element = { foo: 'bar' };
-  let event = { target: element };
+  assert.expect(3);
+  let event = { target: { foo: 'bar' } };
+  let element = {
+    contains: target => {
+      assert.equal(target, event.target);
+      return true;
+    }
+  };
   let DroppableObject = Ember.Object.extend(DroppableMixin);
   let subject = DroppableObject.create({
     element,
@@ -109,9 +134,14 @@ test('_dragLeave() calls setDropTarget(event, false)', function(assert) {
 });
 
 test('_dragLeave() sets dropTarget to false', function(assert) {
-  assert.expect(1);
-  let element = { foo: 'bar' };
-  let event = { target: element };
+  assert.expect(2);
+  let event = { target: { foo: 'bar' } };
+  let element = {
+    contains: target => {
+      assert.equal(target, event.target);
+      return true;
+    }
+  };
   let DroppableObject = Ember.Object.extend(DroppableMixin);
   let subject = DroppableObject.create({ dropTarget: true, element });
   subject._dragLeave(event);
