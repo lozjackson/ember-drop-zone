@@ -9,6 +9,6 @@
 {{/drop-zone}}
 
 {{#draggable-item model=myModel}}
-  <div>id: 1,</div>
-  <div>type: 'my-model'</div>
+  <div>id: {{myModel.id}},</div>
+  <div>type: {{myModel.constructor.modelName}}</div>
 {{/draggable-item}}

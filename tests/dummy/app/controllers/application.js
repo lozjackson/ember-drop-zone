@@ -1,12 +1,11 @@
 import Ember from 'ember';
 
-const Item = Ember.Object.extend({
-  id: 1,
-  type: 'my-model'
-});
-
 export default Ember.Controller.extend({
-  myModel: Item.create(),
+  myModel: Ember.computed(function () {
+    return this.get('store').createRecord('my-model', {
+      id: 1
+    });
+  }),
 
   actions: {
     dropItem(item) {
