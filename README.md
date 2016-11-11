@@ -1,8 +1,20 @@
 # Ember-drop-zone
 
-This README outlines the details of collaborating on this Ember addon.
+Ember-drop-zone is an Ember-cli addon that provides a drop-zone component.
 
-## Installation
+## Install
+
+* `ember install ember-drop-zone`
+
+## Use
+
+```
+{{#drop-zone action="doSomething"}}
+  ...
+{{/drop-zone}}
+```
+
+## Installation for development
 
 * `git clone <repository-url>` this repository
 * `cd ember-drop-zone`
