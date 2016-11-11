@@ -40,7 +40,7 @@ export default Ember.Mixin.create({
 		@private
 	*/
 	_drop(event) {
-		if (event && event.target === this.get('element')) {
+		if (this.get('element').contains(event.target)) {
 			this.setDropTarget(event, false);
 		}
 	},
@@ -51,7 +51,7 @@ export default Ember.Mixin.create({
 		@private
   */
 	_dragEnter(event) {
-		if (event && event.target === this.get('element')) {
+		if (this.get('element').contains(event.target)) {
 			this.setDropTarget(event, true);
 		}
 	},
@@ -62,7 +62,7 @@ export default Ember.Mixin.create({
 		@private
   */
 	_dragLeave(event) {
-		if (event && event.target === this.get('element')){
+		if (this.get('element').contains(event.target)){
 			this.setDropTarget(event, false);
 		}
 	},
