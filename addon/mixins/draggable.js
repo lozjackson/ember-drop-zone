@@ -3,6 +3,8 @@
 */
 import Ember from 'ember';
 
+const { get } = Ember;
+
 /**
   @class DraggableMixin
   @namespace Mixins
@@ -24,19 +26,39 @@ export default Ember.Mixin.create({
 	draggable: true,
 
   /**
+    @property effectAllowed
+    @type {String}
+    @default `copyMove`
+  */
+  effectAllowed: 'copyMove',
+
+  serialize() {
+    let id, type;
+    let model = get(this, 'model');
+    if (model) {
+      id = get(model, 'id');
+  		type = get(model, 'constructor.modelName');
+    }
+
+    return { id, type };
+  },
+
+  setData(event, data) {
+    event.dataTransfer.setData("text", data);
+  },
+
+  setEffectAllowed(event) {
+    event.dataTransfer.effectAllowed = get(this, 'effectAllowed');
+  },
+
+  /**
     @method _dragStart
     @param {Object} event
     @private
   */
   _dragStart(event) {
-    let model = this.get('model');
-    if (model) {
-      let id = model.get('id');
-  		let type = model.constructor.modelName;
-
-      event.dataTransfer.setData("text", JSON.stringify({ id, type }));
-    	event.dataTransfer.effectAllowed = 'copyMove';
-    }
+    this.setData(event, JSON.stringify(this.serialize()));
+    this.setEffectAllowed(event);
   },
 
   /**
