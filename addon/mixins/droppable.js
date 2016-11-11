@@ -9,6 +9,12 @@ import Ember from 'ember';
 */
 export default Ember.Mixin.create({
 
+	/**
+	  @property classNameBindings
+	  @type {Array}
+		@private
+		@default `['dropTarget']`
+	*/
 	classNameBindings: ['dropTarget'],
 
 	/**
@@ -20,13 +26,22 @@ export default Ember.Mixin.create({
 	dropTarget: false,
 
 	/**
+	  @method setDropTarget
+		@param {Object} event
+    @param {Boolean} value
+	*/
+	setDropTarget(event, value) {
+		this.set('dropTarget', value);
+	},
+
+	/**
 	  @method _drop
     @param {Object} event
 		@private
 	*/
 	_drop(event) {
 		if (event && event.target === this.get('element')) {
-			this.set('dropTarget', false);
+			this.setDropTarget(event, false);
 		}
 	},
 
@@ -37,7 +52,7 @@ export default Ember.Mixin.create({
   */
 	_dragEnter(event) {
 		if (event && event.target === this.get('element')) {
-			this.set('dropTarget', true);
+			this.setDropTarget(event, true);
 		}
 	},
 
@@ -47,8 +62,8 @@ export default Ember.Mixin.create({
 		@private
   */
 	_dragLeave(event) {
-		if (event.target === this.get('element')) {
-			this.set('dropTarget', false);
+		if (event && event.target === this.get('element')){
+			this.setDropTarget(event, false);
 		}
 	},
 
