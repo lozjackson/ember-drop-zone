@@ -3,6 +3,7 @@
 */
 import Ember from 'ember';
 
+const { on } = Ember;
 /**
   @class DroppableMixin
   @namespace Mixins
@@ -68,40 +69,40 @@ export default Ember.Mixin.create({
 	},
 
 	/**
-	  @event drop
+	  @event onDrop
     @param {Object} event
 	*/
-	drop(event) {
+	onDrop: on('drop', function (event) {
 		event.preventDefault();
-		this._drop(...arguments);
-	},
+		this._drop(event);
+  }),
 
   /**
-    @event dragEnter
+    @event onDragEnter
     @param {Object} event
   */
-	dragEnter(event) {
+	onDragEnter: on('dragEnter', function (event) {
 		event.preventDefault();
-		this._dragEnter(...arguments);
+		this._dragEnter(event);
 		return false;
-	},
+  }),
 
   /**
-    @event dragLeave
+    @event onDragLeave
     @param {Object} event
   */
-	dragLeave(event) {
+	onDragLeave: on('dragLeave', function (event) {
 		event.preventDefault();
 		this._dragLeave(...arguments);
 		return false;
-	},
+	}),
 
   /**
-    @event dragOver
+    @event onDragOver
     @param {Object} event
   */
-	dragOver(event) {
+	onDragOver: on('dragOver', function (event) {
 		event.preventDefault();
 		return false;
-	}
+	})
 });
