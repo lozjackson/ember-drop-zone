@@ -12,6 +12,49 @@ test('key should be text', function(assert) {
   assert.equal(component.get('key'), 'text');
 });
 
+test('getData() is a function', function(assert) {
+  let component = this.subject();
+  this.render();
+  assert.equal(Ember.typeOf(component.getData), 'function');
+});
+
+test('getData() key', function(assert) {
+  assert.expect(1);
+
+  let event = {
+    dataTransfer: {
+      items: [ { kind: 'string' } ],
+      getData: (type) => {
+        assert.equal(type, 'foo');
+        return '{"test":"1"}';
+      }
+    }
+  };
+
+  let component = this.subject();
+
+  this.render();
+
+  component.set('key', 'foo');
+  component.getData(event);
+});
+
+test('getData() returns the correct data', function(assert) {
+  assert.expect(1);
+
+  let event = {
+    dataTransfer: {
+      items: [ { kind: 'string' } ],
+      getData: () => '{"test":"1"}'
+    }
+  };
+
+  let component = this.subject();
+  this.render();
+
+  assert.deepEqual(component.getData(event), { test: "1" });
+});
+
 test('drop() is a function', function(assert) {
   let component = this.subject();
   this.render();
@@ -24,6 +67,7 @@ test('drop() calls sendAction', function(assert) {
   let event = {
     key: 'text',
     dataTransfer: {
+      items: [ { kind: 'string' } ],
       getData: (type) => {
         assert.equal(type, 'text');
         return '{"test":"1"}';
@@ -48,6 +92,7 @@ test('drop() getData key', function(assert) {
   let event = {
     preventDefault: () => {},
     dataTransfer: {
+      items: [ { kind: 'string' } ],
       getData: (type) => {
         assert.equal(type, 'foo');
         return '{"test":"1"}';
