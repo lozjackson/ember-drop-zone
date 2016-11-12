@@ -40,7 +40,11 @@
     "phantomjs-prebuilt": "^2.1.13"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "drop-zone",
+    "html5",
+    "drag",
+    "drop"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6",
