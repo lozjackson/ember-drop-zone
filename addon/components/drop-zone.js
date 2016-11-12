@@ -30,11 +30,22 @@ export default Ember.Component.extend(DroppableMixin, {
   key: 'text',
 
   /**
+    @method getData
+    @param {Object} event
+  */
+  getData(event) {
+    let json;
+    if (event && event.dataTransfer && event.dataTransfer.items) {
+      json = event.dataTransfer.getData(this.get('key'));
+    }
+    return json ? JSON.parse(json) : {};
+  },
+
+  /**
     @method drop
     @param {Object} event
   */
   drop(event) {
-		this._super(...arguments);
-    this.sendAction('action', JSON.parse(event.dataTransfer.getData(this.get('key'))));
+    this.sendAction('action', this.getData(event));
 	}
 });

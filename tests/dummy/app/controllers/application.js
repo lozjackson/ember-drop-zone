@@ -1,6 +1,14 @@
 import Ember from 'ember';
+import getFiles from 'ember-drop-zone/utils/get-files';
 
 export default Ember.Controller.extend({
+
+  getFiles,
+
+  files: Ember.A([]),
+
+  items: Ember.A([]),
+
   myModel: Ember.computed(function () {
     return this.get('store').createRecord('my-model', {
       id: 1
@@ -9,7 +17,11 @@ export default Ember.Controller.extend({
 
   actions: {
     dropItem(item) {
-      Ember.Logger.debug('dropItem', item);
+      this.get('items').pushObject(item);
+    },
+
+    dropFile(files) {
+      files.forEach(file => this.get('files').pushObject(file));
     }
   }
 });

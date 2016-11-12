@@ -1,15 +1,27 @@
-<h2>Ember-drop-zone</h2>
+<h1>Ember-drop-zone</h1>
 
 {{#drop-zone action="dropItem"}}
-  {{#each list as |item|}}
-    <div>{{item}}</div>
-  {{else}}
-    <p>Drop items here...</p>
-  {{/each}}
-  <div class="inner-box"></div>
+  <p>Drop items here...</p>
+  <ul>
+    {{#each items as |item|}}
+      <li>id: {{item.id}}, type: {{item.type}}</li>
+    {{/each}}
+  </ul>
 {{/drop-zone}}
 
 {{#draggable-item model=myModel}}
+  <h3>Item</h3>
   <div>id: {{myModel.id}},</div>
   <div>type: {{myModel.constructor.modelName}}</div>
 {{/draggable-item}}
+
+
+{{#drop-zone action="dropFile" getData=getFiles}}
+  <p>Drop files here...</p>
+
+  <ul>
+    {{#each files as |file|}}
+      <li>Filename: {{file.name}}</li>
+    {{/each}}
+  </ul>
+{{/drop-zone}}

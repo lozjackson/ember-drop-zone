@@ -50,10 +50,11 @@ export default Ember.Mixin.create({
   /**
     @method setData
     @param {Object} event
+    @param {String} string
     @private
   */
-  setData(event, data) {
-    event.dataTransfer.setData("text", data);
+  setData(event, string) {
+    event.dataTransfer.setData("text", string);
   },
 
   /**

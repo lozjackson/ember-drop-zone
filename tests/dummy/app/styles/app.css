@@ -1,3 +1,6 @@
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
 .drop-zone {
   height: 300px;
   width: 300px;
@@ -7,21 +10,15 @@
   text-align: center;
   transition: background 0.1s;
 }
+.drop-zone ul {
+  text-align: left;
+}
 .draggable-item {
-  height: 50px;
+  height: 150px;
   width: 200px;
   margin: auto;
   border-radius: 2px;
   background: rgba(255,255,0,0.1);
-  border: 1px solid black;
-  text-align: center;
-}
-.inner-box {
-  height: 50px;
-  width: 200px;
-  margin: auto;
-  border-radius: 2px;
-  background: rgba(0,255,0,0.1);
   border: 1px solid black;
   text-align: center;
 }
