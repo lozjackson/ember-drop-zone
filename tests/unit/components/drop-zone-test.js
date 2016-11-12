@@ -2,7 +2,6 @@ import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('drop-zone', 'Unit | Component | drop zone', {
-  // Specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar'],
   unit: true
 });
@@ -19,30 +18,10 @@ test('drop() is a function', function(assert) {
   assert.equal(Ember.typeOf(component.drop), 'function');
 });
 
-test('drop() method calls preventDefault via super', function(assert) {
-  assert.expect(1);
-
-  let event = {
-    preventDefault: () => assert.ok(true),
-    dataTransfer: {
-      getData: () => {
-        return '{"test":"1"}';
-      }
-    }
-  };
-
-  let component = this.subject();
-  this.render();
-
-  component.drop(event);
-});
-
-
 test('drop() calls sendAction', function(assert) {
-  assert.expect(4);
+  assert.expect(3);
 
   let event = {
-    preventDefault: () => assert.ok(true),
     key: 'text',
     dataTransfer: {
       getData: (type) => {
