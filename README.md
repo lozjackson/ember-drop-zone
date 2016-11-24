@@ -20,7 +20,7 @@ Create a drop-zone using the `{{drop-zone}}` component.
 
 Then handle the action in your controller or component.
 
-```hbs
+```js
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -32,7 +32,7 @@ export default Ember.Component.extend({
 });
 ```
 
-By default the `drop-zone` component will extract string data from the `event.dataTransfer` object.
+By default the `DropZoneComponent` component will extract string data from the `event.dataTransfer` object.
 
 ### Get Files
 
