@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { typeOf } from '@ember/utils';
 import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('drop-zone', 'Unit | Component | drop zone', {
@@ -15,7 +15,7 @@ test('key should be text', function(assert) {
 test('getData() is a function', function(assert) {
   let component = this.subject();
   this.render();
-  assert.equal(Ember.typeOf(component.getData), 'function');
+  assert.equal(typeOf(component.getData), 'function');
 });
 
 test('getData() key', function(assert) {
@@ -58,7 +58,7 @@ test('getData() returns the correct data', function(assert) {
 test('drop() is a function', function(assert) {
   let component = this.subject();
   this.render();
-  assert.equal(Ember.typeOf(component.drop), 'function');
+  assert.equal(typeOf(component.drop), 'function');
 });
 
 test('drop() calls sendAction', function(assert) {

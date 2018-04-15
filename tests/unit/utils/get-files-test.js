@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { typeOf } from '@ember/utils';
 import getFiles from 'dummy/utils/get-files';
 import { module, test } from 'qunit';
 
@@ -6,7 +6,7 @@ module('Unit | Utility | get files');
 
 
 test('getFiles is a function', function(assert) {
-  assert.equal(Ember.typeOf(getFiles), 'function');
+  assert.equal(typeOf(getFiles), 'function');
 });
 
 test('it returns the files array form the dataTransfer object', function(assert) {

@@ -1,15 +1,17 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
 import getFiles from 'ember-drop-zone/utils/get-files';
+import { computed } from '@ember/object';
+import { A } from '@ember/array';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   getFiles,
 
-  files: Ember.A([]),
+  files: A([]),
 
-  items: Ember.A([]),
+  items: A([]),
 
-  myModel: Ember.computed(function () {
+  myModel: computed(function () {
     return this.get('store').createRecord('my-model', {
       id: 1
     });

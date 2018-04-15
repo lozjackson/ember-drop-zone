@@ -1,14 +1,14 @@
 /**
   @module ember-drop-zone
 */
-import Ember from 'ember';
+import Mixin from '@ember/object/mixin';
+import { on } from '@ember/object/evented';
 
-const { on } = Ember;
 /**
   @class DroppableMixin
   @namespace Mixins
 */
-export default Ember.Mixin.create({
+export default Mixin.create({
 
 	/**
 	  @property classNameBindings

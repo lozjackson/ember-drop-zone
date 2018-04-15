@@ -1,7 +1,7 @@
 /**
   @module ember-drop-zone
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import DroppableMixin from 'ember-drop-zone/mixins/droppable';
 import layout from '../templates/components/drop-zone';
 
@@ -10,7 +10,7 @@ import layout from '../templates/components/drop-zone';
   @uses Mixins.DroppableMixin
   @namespace Components
 */
-export default Ember.Component.extend(DroppableMixin, {
+export default Component.extend(DroppableMixin, {
 
   layout,
 
