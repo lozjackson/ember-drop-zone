@@ -11,17 +11,20 @@
   ## Get files
 
   An array of file objects are returned.
-  
+
   @method getFiles
   @param {Object} event
   @return {Array}
 */
 export default function getFiles(event) {
-  let i, files, data = [];
+  let data = [];
   if (event && event.dataTransfer && event.dataTransfer.items) {
-    if (files = event.dataTransfer.files) {
+
+    const files = event.dataTransfer.files
+
+    if (files) {
       let filesLength = files.length;
-      for (i = 0; i < filesLength; i++) {
+      for (let i = 0; i < filesLength; i++) {
         data.push(files[i]);
       }
     }

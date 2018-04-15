@@ -1,15 +1,14 @@
 /**
   @module ember-drop-zone
 */
-import Ember from 'ember';
-
-const { get } = Ember;
+import Mixin from '@ember/object/mixin';
+import { get } from '@ember/object';
 
 /**
   @class DraggableMixin
   @namespace Mixins
 */
-export default Ember.Mixin.create({
+export default Mixin.create({
 
   /**
     @property attributeBindings
@@ -42,7 +41,7 @@ export default Ember.Mixin.create({
     let model = get(this, 'model');
     if (model) {
       id = get(model, 'id');
-  		type = get(model, 'constructor.modelName') || get(model, '_internalModel.modelName');
+      type = get(model, 'constructor.modelName') || get(model, '_internalModel.modelName');
     }
     return { id, type };
   },

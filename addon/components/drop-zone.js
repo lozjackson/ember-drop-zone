@@ -1,16 +1,17 @@
 /**
   @module ember-drop-zone
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import DroppableMixin from 'ember-drop-zone/mixins/droppable';
 import layout from '../templates/components/drop-zone';
+import { get } from '@ember/object';
 
 /**
   @class DropZoneComponent
   @uses Mixins.DroppableMixin
   @namespace Components
 */
-export default Ember.Component.extend(DroppableMixin, {
+export default Component.extend(DroppableMixin, {
 
   layout,
 
@@ -46,6 +47,9 @@ export default Ember.Component.extend(DroppableMixin, {
     @param {Object} event
   */
   drop(event) {
-    this.sendAction('action', this.getData(event));
-	}
+    const action = get(this, 'action');
+    if (typeof action === 'function') {
+      action(this.getData(event));
+    }
+  }
 });
