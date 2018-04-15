@@ -41,7 +41,7 @@ export default Mixin.create({
     let model = get(this, 'model');
     if (model) {
       id = get(model, 'id');
-  		type = get(model, 'constructor.modelName') || get(model, '_internalModel.modelName');
+      type = get(model, 'constructor.modelName') || get(model, '_internalModel.modelName');
     }
     return { id, type };
   },

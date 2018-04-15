@@ -62,7 +62,7 @@ test('drop() is a function', function(assert) {
 });
 
 test('drop() calls sendAction', function(assert) {
-  assert.expect(3);
+  assert.expect(2);
 
   let event = {
     key: 'text',
@@ -76,8 +76,7 @@ test('drop() calls sendAction', function(assert) {
   };
 
   let component = this.subject({
-    sendAction: (actionName, data) => {
-      assert.equal(actionName, 'action');
+    action: (data) => {
       assert.deepEqual(data, { test: "1" });
     }
   });
@@ -101,7 +100,7 @@ test('drop() getData key', function(assert) {
   };
 
   let component = this.subject({
-    sendAction: () => {}
+    action: () => {}
   });
 
   this.render();

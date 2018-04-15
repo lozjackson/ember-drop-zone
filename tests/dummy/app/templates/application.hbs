@@ -1,6 +1,6 @@
 <h1>Ember-drop-zone</h1>
 
-{{#drop-zone action="dropItem"}}
+{{#drop-zone action=(action "dropItem")}}
   <p>Drop items here...</p>
   <ul>
     {{#each items as |item|}}
@@ -16,7 +16,7 @@
 {{/draggable-item}}
 
 
-{{#drop-zone action="dropFile" getData=getFiles}}
+{{#drop-zone action=(action "dropFile") getData=getFiles}}
   <p>Drop files here...</p>
 
   <ul>
