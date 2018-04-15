@@ -13,7 +13,7 @@ Ember-drop-zone is an Ember-cli addon that provides a drop-zone component.
 Create a drop-zone using the `{{drop-zone}}` component.
 
 ```hbs
-{{#drop-zone action="doSomething"}}
+{{#drop-zone action=(action "doSomething")}}
   drop items here...
 {{/drop-zone}}
 ```
@@ -49,7 +49,7 @@ export default Ember.Component.extend({
 Then assign the `getFiles` method to the `getData` method of the `DropZoneComponent`.   This will change the behavior of the `DropZoneComponent` so that it will extract files from the `event.dataTransfer` object instead of text.
 
 ```hbs
-{{#drop-zone action="doSomething" getData=getFiles}}
+{{#drop-zone action=(action "doSomething") getData=getFiles}}
   Drop files here...
 {{/drop-zone}}
 ```
